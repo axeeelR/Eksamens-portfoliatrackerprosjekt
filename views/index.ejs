@@ -6,8 +6,22 @@
   <title>Document</title>
 </head>
 <body>
-  <h1>Forside</h1>
-  <form action="/users" method = "post"></form>
-  
+  <nav>
+    <ul>
+      <li><a href="/">Hjem</a></li>
+      <li><a href="/about">Om oss</a></li>
+      <li><a href="/contact">Kontakt</a></li>
+    </ul>
+  </nav>
+  <h1>Velkommen til vår nettside</h1>
+  <form action="/users" method="post">
+    <label for="username">Brukernavn:</label>
+    <input type="text" id="username" name="username" required>
+    
+    <label for="password">Passord:</label>
+    <input type="password" id="password" name="password" required>
+    
+    <button type="submit">Send</button>
+  </form>
 </body>
 </html>
