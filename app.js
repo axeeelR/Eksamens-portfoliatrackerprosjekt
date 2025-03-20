@@ -1,14 +1,26 @@
+const { log } = require('console');
 const express = require('express');
 const app = express();
 const port = 3000;
+
+app.set("view engine", "ejs");
+app.use(express.urlencoded({ extended: true }));
+
+let db = [];
 
 // Middleware for parsing JSON
 app.use(express.json());
 
 // Root endpoint
-app.get('/', (req, res) => {
-    res.send('Velkommen til min enkle Express-server!');
+app.get('/test', (req, res) => {
+    console.log(req);
+    res.status(200).json({test: true});
 });
+
+app.get('/', (req, res) => {
+    res.render("index", {db});
+}
+);
 
 // Sample endpoint for fetching data
 app.get('/data', (req, res) => {
@@ -23,5 +35,5 @@ app.post('/submit', (req, res) => {
 
 // Start server
 app.listen(port, () => {
-    console.log(`Server kjører på http://localhost:${port}`);
+    console.log(`Server kjører på http://localhost:${port}`); 
 });
